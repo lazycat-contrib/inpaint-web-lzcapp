@@ -1,0 +1,24 @@
+lzc-sdk-version: "0.1"
+name: Inpaint Web
+package: cloud.lazycat.app.inpaint-web
+version: 0.0.1
+description: 图像修复工具
+homepage: https://github.com/lxfater/inpaint-web
+author: lxfater
+application:
+  subdomain: inpaint-web
+  background_task: true
+  multi_instance: false
+  gpu_accel: false
+  kvm_accel: false
+  usb_accel: false
+  public_path:
+    - /
+  routes:
+    - /=http://inpaint-web:80/
+services:
+  inpaint-web:
+    container_name: inpaint-web
+    image: docker.hlmirror.com/aliuq/inpaint-web:latest
+   
+
