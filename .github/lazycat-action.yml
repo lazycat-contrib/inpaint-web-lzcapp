@@ -1,0 +1,40 @@
+version: 1
+
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: .lazycat-build/inpaint-web.lpk
+  target_arch: amd64
+
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: inpaint-web
+    bump: patch
+build:
+  run_buildscript: false
+images:
+  # 上游只有 commit-hash 类 immutable tag（d1b6cfd/f7ff41f），无 semver 家族 → custom + created 排序 + bump: patch
+  - id: inpaint-web
+    target: service
+    service: inpaint-web
+    source: aliuq/inpaint-web
+    channel: custom
+    sort: created
+    tag_regex: '^[0-9a-f]{7,40}$'
+    delivery:
+      mode: lazycat
+
+stores:
+  official:
+    enabled: true
+    skip_if_version_exists: true
+    changelog_locales: [zh, en]
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: Inpaint Web
+    summary: "图像修复工具"

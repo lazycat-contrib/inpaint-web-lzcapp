@@ -1,0 +1,14 @@
+package: cloud.lazycat.app.inpaint-web
+version: 0.0.1
+name: Inpaint Web
+description: "图像修复工具"
+min_os_version: "1.5.0"
+homepage: https://github.com/lxfater/inpaint-web
+author: lxfater
+locales:
+  zh:
+    description: "图像修复工具"
+    name: Inpaint Web
+  en:
+    description: "AI image inpainting web tool"
+    name: Inpaint Web
