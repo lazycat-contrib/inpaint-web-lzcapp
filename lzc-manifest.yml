@@ -9,5 +9,5 @@ application:
       backend: http://inpaint-web:80/
 services:
   inpaint-web:
-    # upstream: aliuq/inpaint-web:f7ff41f
-    image: aliuq/inpaint-web:f7ff41f
+    # upstream: aliuq/inpaint-web:d1b6cfd@sha256:3f28385e8586d50848e8ae140c086f77eefcd60a33599fcddce9fec9021f0711
+    image: registry.lazycat.cloud/czyt/aliuq/inpaint-web:69ccf6331881afbc
